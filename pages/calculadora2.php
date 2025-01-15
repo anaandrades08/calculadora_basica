@@ -3,33 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora</title>
-    <link rel="stylesheet" href="../css/calculadora.css">
+    <title>Calculadora PHP</title>
+    <link rel="stylesheet" href="../css/calculadora2.css">
 </head>
 <body>
-    <div class="calculator">
-        <div class="display" id="display">0</div>
-        <div class="buttons">
-            <button onclick="clearDisplay()">C</button>
-            <button onclick="chooseOperation('%')">%</button>
-            <button onclick="appendNumber('7')">7</button>
-            <button onclick="appendNumber('8')">8</button>
-            <button onclick="appendNumber('9')">9</button>
-            <button onclick="chooseOperation('/')">/</button>
-            <button onclick="appendNumber('4')">4</button>
-            <button onclick="appendNumber('5')">5</button>
-            <button onclick="appendNumber('6')">6</button>
-            <button onclick="chooseOperation('*')">*</button>
-            <button onclick="appendNumber('1')">1</button>
-            <button onclick="appendNumber('2')">2</button>
-            <button onclick="appendNumber('3')">3</button>
-            <button onclick="chooseOperation('-')">-</button>
-            <button onclick="appendNumber('0')">0</button>
-            <button onclick="appendNumber('.')">.</button>
-            <button onclick="compute()">=</button>
-            <button onclick="chooseOperation('+')">+</button>
-        </div>
+    <h2>Calculadora PHP</h2>
+    <div class="container">
+        <form method="post" action="">
+            <input type="number" name="num1" placeholder="Primeiro Número" required>
+            <select name="operacao">
+                <option value="add">+</option>
+                <option value="sub">-</option>
+                <option value="mul">*</option>
+                <option value="div">/</option>
+            </select>
+            <input type="number" name="num2" placeholder="Segundo Número" required>
+            <button type="submit" name="calcular">Calcular</button>
+        </form>
+        <?php
+            if (isset($_POST['calcular'])) {
+                $num1 = $_POST['num1'];
+                $num2 = $_POST['num2'];
+                $operacao = $_POST['operacao'];
+                
+                switch ($operacao) {
+                    case "add":
+                        $resultado = $num1 + $num2;
+                        break;
+                    case "sub":
+                        $resultado = $num1 - $num2;
+                        break;
+                    case "mul":
+                        $resultado = $num1 * $num2;
+                        break;
+                    case "div":
+                        if ($num2 != 0) {
+                            $resultado = $num1 / $num2;
+                        } else {
+                            $resultado = "Erro: Divisão por zero!";
+                        }
+                        break;
+                    default:
+                        $resultado = "Operação inválida!";
+                        break;
+                }
+                echo "<div class='resultado'>Resultado: $resultado</div>";
+            }
+        ?>
     </div>
-    <script src="../js/script.js"></script>
 </body>
 </html>

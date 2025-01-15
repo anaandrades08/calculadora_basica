@@ -15,10 +15,13 @@
     </header>
         <main>
             <section id="links">
-                <h2>Calculadoras</h2>
+                <h2>Calculadoras básicas em PHP, JS </h2>
                 <ul>
                     <li><a href="pages/calculadora1.php">Calculadora Básica 1 (PHP)</a></li>
-                    <li><a href="pages/calculadora2.php">Calculadora Básica 2 (js) </a></li>
+                    <li><a href="pages/calculadora2.php">Calculadora Básica 2 (PHP) </a></li>
+                    <li><a href="pages/calculadora3.php">Calculadora Básica 3 (PHP) </a></li>
+                    <li><a href="pages/calculadora4.html">Calculadora Básica 4 (JS) </a></li>
+                    <li><a href="pages/calculadora5.html">Calculadora Básica 5 (JS) </a></li>
                 </ul>
             </section>
         </main>
